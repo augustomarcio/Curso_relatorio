@@ -1,0 +1,171 @@
+####### Chat da aula 2
+
+00:26:35	Beatriz Milz (Curso-R):	aqui tem os códigos daquela oficina também!
+00:26:36	Beatriz Milz (Curso-R):	https://github.com/curso-r/202203-oficina-dsp/blob/main/oficinas/15-06-2022-mapas/index.Rmd
+00:26:49	Beatriz Milz (Curso-R):	e nesse post tem mais exemplos de  perfumarias https://beamilz.com/posts/2020-07-27-criando-mapas-com-os-pacotes-tidyverse-e-geobr/pt/
+00:27:07	Julio | @jtrecenti:	mapa <- geobr::read_municipality()
+mapa_mg <- mapa |> 
+  dplyr::filter(abbrev_state == "MG")
+
+base_dados <- abjData::pnud_min |> 
+  dplyr::filter(ano == 2010, uf_sigla == "MG") |> 
+  dplyr::mutate(muni_id = as.numeric(muni_id))
+
+library(ggplot2)
+mapa_mg |> 
+  dplyr::inner_join(
+    base_dados,
+    c("code_muni" = "muni_id")
+  ) |> 
+  ggplot() +
+  geom_sf(
+    aes(fill = idhm),
+    colour = "black",
+    size = .2
+  ) +
+  theme_void()
+00:27:33	Beatriz Milz (Curso-R):	boa noite!
+00:27:57	Manuella.Andrade:	Boa noite! Sem duvidas
+00:31:05	Beatriz Milz (Curso-R):	Julio ta sé divertindo no mapa, Isa
+00:31:13	Isabela Queiros:	To vendo rs
+00:31:15	Julio | @jtrecenti:	eu gosto de mapas
+00:31:16	Julio | @jtrecenti:	kkk
+00:33:25	Beatriz Milz (Curso-R):	boa noite!!
+00:33:30	Pedro H. Reis:	Boa noite!
+00:33:34	Eduardo Cândido:	boa noite
+00:33:36	Maria Amélia:	Boa noite!
+00:34:25	Eduardo Cândido:	diferentes formatos de arquivo ?
+00:34:50	Samuel Beskow:	Boa noite pessoal
+00:35:52	Beatriz Milz (Curso-R):	Boa noite Samuel!
+00:39:44	Beatriz Milz (Curso-R):	o gráfico na aba Plot foi algo feito hoje na monitoria…
+00:39:50	Beatriz Milz (Curso-R):	então nao se preocupem
+00:41:45	Beatriz Milz (Curso-R):	como é falado em ingles?
+00:41:52	Beatriz Milz (Curso-R):	deve ser algo nesse sentido
+00:42:08	Beatriz Milz (Curso-R):	entao tá condizente com o tek
+00:43:32	Beatriz Milz (Curso-R):	pelo que vi vai demorar um pouco 🙁
+00:43:50	Beatriz Milz (Curso-R):	vi no twitter, acho que te marquei kkk
+00:45:01	Beatriz Milz (Curso-R):	https://pbs.twimg.com/media/FaY4NclUUAEoBNh?format=jpg&name=medium
+00:49:48	Márcio:	Funciona para apresentações também?
+00:49:56	Beatriz Milz (Curso-R):	é bom não fazer código com linhas muito longas kkkk pq cortou
+00:53:18	Beatriz Milz (Curso-R):	remark - xaringan; reveal - quarto
+00:54:33	Eduardo Cândido:	não estou conseguindo rodar o script da aula passada, aparece o seguinte. Error: Path exists and overwrite is FALSE. pode ajudar Beatriz ?
+00:55:22	Eduardo Cândido:	na função que baixa os dados
+00:56:29	Beatriz Milz (Curso-R):	Eduardo, o código de baixar deve estar rodando novamente. Veja se na linha de criação do chunk tem essas opções: ```{r eval=FALSE, include=FALSE}
+00:56:37	Beatriz Milz (Curso-R):	para evitar rodar!
+00:57:20	Beatriz Milz (Curso-R):	avisa se deu certo!
+00:57:37	Beatriz Milz (Curso-R):	https://beatrizmilz.github.io/rstudioconf2022/ essa é a apresentação mais recente que fiz com quarto
+00:57:42	Eduardo Cândido:	vou ver agora, eu estava rodando fora do RMarkdown
+00:57:47	Eduardo Cândido:	e já estava aparecendo.
+00:57:51	Eduardo Cândido:	mas vou ver aqui.
+00:58:45	Beatriz Milz (Curso-R):	hmm, então  acho que não entendi a dúvida/causa do problema, Eduardo!
+00:59:12	Eduardo Cândido:	pode continuar
+00:59:58	Beatriz Milz (Curso-R):	https://curso-r.github.io/main-relatorios/slides/index.html#40
+01:00:13	Beatriz Milz (Curso-R):	https://raw.githubusercontent.com/curso-r/202208-relatorios/main/praticas/aula-1/pratica-1-quarto.qmd
+01:02:02	Mariângela Ribeiro:	sim
+01:02:08	Bárbara Tassoni:	sim
+01:02:22	ricardo primi:	Sim!
+01:04:01	Julio | @jtrecenti:	ctrl+alt+I 😎
+
+cmd+option+I 🤮
+01:07:03	Eduardo Cândido:	agora deu certo. hehe
+01:07:27	Julio | @jtrecenti:	🙌
+01:17:49	Julio | @jtrecenti:	depois de alguns anos
+01:21:18	Julio | @jtrecenti:	não seria fig-align?
+01:24:19	Beatriz Milz (Curso-R):	https://www.r-project.org/Rlogo.png
+01:27:19	Beatriz Milz (Curso-R):	https://pbs.twimg.com/media/FaY4NclUUAEoBNh?format=jpg&name=medium
+01:28:25	Julio | @jtrecenti:	😭
+01:28:51	Beatriz Milz (Curso-R):	https://curso-r.com/
+01:41:29	Beatriz Milz (Curso-R):	https://app.mettzer.com/latex
+01:41:41	Julio | @jtrecenti:	tem o detexify tbm
+01:41:52	Julio | @jtrecenti:	https://detexify.kirelabs.org/classify.html
+01:42:07	Ludmila Pedroso:	Boa noite, desculpem o atraso. Tive problemas de conexão.
+01:42:20	Beatriz Milz (Curso-R):	https://raw.githubusercontent.com/curso-r/202208-relatorios/main/praticas/aula-1/pratica-1-quarto.qmd
+01:42:31	Ludmila Pedroso:	Ok, obrigada.
+01:42:36	Ludmila Pedroso:	Vou assistir depois
+01:43:22	Beatriz Milz (Curso-R):	$${\text{Média}=\frac {a_{1}+a_{2}+\cdots +a_{n}}{n}}$$
+01:47:57	Beatriz Milz (Curso-R):	https://www.scielo.br/j/asoc/a/YTqxVFZK4CnHZd6kjxsTs7Q/?lang=pt#
+01:49:27	Beatriz Milz (Curso-R):	Assim, no que se refere às limitações deste estudo, ressalta-se que os dados analisados foram coletados até 30/11/2020 e como o Sistema Integrado de Gestão de Barragem de Mineração (SIGBM) apresenta atualização dinâmica, isso indica a necessidade de atualização dos dados. Assim, sugerimos estudos futuros que concentrem em diagnosticar a progressão das atualizações dos dados das barragens de mineração e sua contribuição para garantir a sua integridade.
+01:50:07	Beatriz Milz (Curso-R):	https://doi.org/10.1590/1809-4422asoc20210066r1vu2022L2AO
+01:53:41	Eduardo Cândido:	tudo ok
+01:54:11	Julio | @jtrecenti:	o meu funcionou o link
+01:56:13	Beatriz Milz (Curso-R):	10.1590/1809-4422asoc20210066r1vu2022L2AO
+01:57:05	Julio | @jtrecenti:	caso o erro seja sistematico, uma alternativa pode ser reinstalar o rstudio
+01:57:24	Mariângela Ribeiro:	ok!
+01:58:16	Eduardo Cândido:	tenta ver se não ficou nenhum espaço antes do link na hora que você colou, Mariângela!!
+01:59:13	Mariângela Ribeiro:	Verei, Eduardo!
+02:08:19	Beatriz Milz (Curso-R):	20:47
+02:08:34	Ludmila Pedroso:	ok
+02:08:46	Mariângela Ribeiro:	ok!
+02:09:14	Maria Amélia:	Tem como usar os pacotes do Latex no R
+02:09:19	Maria Amélia:	?
+02:11:32	Julio | @jtrecenti:	Oi Maria, tem sim! Se o output for pdf, ele vai usar latex por trás. Quando isso acontece, na prática, qualquer código latex válido funciona
+02:11:52	Julio | @jtrecenti:	então você pode escrever em latex normalmente e vai dar certo
+02:12:08	Julio | @jtrecenti:	incluindo \usepackage{} etc
+02:12:38	Maria Amélia:	Obrigada!
+02:12:50	Julio | @jtrecenti:	a única desvantagem de fazer isso é que o seu documento daria problema se vc trocar o output para outro formato, como html por exemplo
+02:16:15	Maria Amélia:	Existe alguma situação em que vale mais a pena usar o R Sweave do que R Markdown/Quarto?
+02:18:52	Beatriz Milz (Curso-R):	Oi pessoal!!
+02:18:57	Beatriz Milz (Curso-R):	estão por ai?
+02:19:01	Ludmila Pedroso:	sim
+02:19:39	Julio | @jtrecenti:	Oi Maria, acho que não. O knitr foi criado para substituir o Sweave, então não existe uma vantagem real do Sweave para o knitr (pelo que entendo)
+02:19:42	Beatriz Milz (Curso-R):	Maria, vou deixar essa pergunta pro Julio! Eu não cheguei a usar o Sweave
+02:20:05	Bárbara Tassoni:	to por aqui tb
+02:20:09	Ludmila Pedroso:	atrasadíssima hj..rss
+02:21:47	Julio | @jtrecenti:	retirado do site oficial do knitr (https://yihui.org/knitr/):
+
+> Inspired by Sweave, the knitr package was designed to be a transparent engine for dynamic report generation with R, and combine features in other add-on packages into one package (knitr ≈ Sweave + cacheSweave + pgfSweave + weaver + animation::saveLatex() + R2HTML::RweaveHTML() + highlight::HighlightWeaveLatex() + 0.2 * brew + 0.1 * SweaveListingUtils + more)
+02:22:17	Maria Amélia:	Obrigada!
+02:24:55	Julio | @jtrecenti:	https://xkcd.com/927/
+02:25:14	Beatriz Milz (Curso-R):	https://github.com/citation-style-language/styles/blob/master/associacao-brasileira-de-normas-tecnicas.csl
+02:29:59	Julio | @jtrecenti:	importante: em referencias cruzadas, sempre usar traços "-", não usar underscore "_"
+02:30:39	Beatriz Milz (Curso-R):	## Objetivos {#sec-objetivos}
+02:32:11	Beatriz Milz (Curso-R):	lang: pt
+02:33:09	Julio | @jtrecenti:	👏👏
+02:33:19	Maria Amélia:	Tem como alternar os idiomas no documento?
+02:33:40	Maria Amélia:	Sim
+02:33:46	Maria Amélia:	Tipo o abstract
+02:34:01	Julio | @jtrecenti:	ah mas o abstract não precisa
+02:34:15	Julio | @jtrecenti:	é mais para os títulos etc
+02:34:29	Maria Amélia:	Entedi
+02:37:21	Beatriz Milz (Curso-R):	https://quarto.org/
+02:38:33	Beatriz Milz (Curso-R):	https://quarto.org/docs/authoring/cross-references.html
+02:39:14	Julio | @jtrecenti:	Nos [Objetivos @sec-objetivos]
+02:51:15	Beatriz Milz (Curso-R):	O arquivo packages foi criado! entao se quiser dar ctrl z
+02:57:08	Eduardo Cândido:	CE
+03:01:25	Beatriz Milz (Curso-R):	vocês já usaram purrr?
+03:02:03	Beatriz Milz (Curso-R):	tem uma live do Caio lá no youtube da Curso-R sobre purrr também, né
+03:02:04	Beatriz Milz (Curso-R):	?
+03:02:25	Eduardo Cândido:	Não!!
+03:02:37	Eduardo Cândido:	mas já ouvi falar.
+03:14:18	Jean Carlo:	Se rodar novamente o código de output html, o overwrite dos arquivos é automático? Ou ele também da erro?
+03:14:29	Beatriz Milz (Curso-R):	é automatico!
+03:14:42	Jean Carlo:	Obrigado, Bea!
+03:15:32	Mariângela Ribeiro:	preciso sair, pessoal. Valeu por hoje!
+03:15:43	Beatriz Milz (Curso-R):	Boa noite, Mari!
+03:15:47	Beatriz Milz (Curso-R):	De nada, Jean!!
+03:17:45	Eduardo Cândido:	tudo ok,
+03:17:54	Eduardo Cândido:	muito irado o purr, não conhecia
+03:17:55	Ludmila Pedroso:	Tranquilo
+03:18:10	ricardo primi:	Beleza ! Show !! Muito interessante.
+03:19:07	Isabela Queiros:	Preciso ir gente. Boa noite e muito obrigada por hoje
+03:19:16	Beatriz Milz (Curso-R):	boa noite Isa!!
+03:19:40	Ludmila Pedroso:	Obrigada
+03:19:43	Ludmila Pedroso:	Boa noite a todos
+03:19:44	Eduardo Cândido:	boa noite
+03:19:48	Jean Carlo:	Obrigado, Bea e Julio. Grande aula. Obrigado, pessoal. Boa noite!
+03:19:50	ricardo primi:	Valeu boa noite!!
+03:19:52	Márcio:	Boa noite
+03:19:55	Maria Amélia:	Boa noite!!
+03:20:00	Beatriz Milz (Curso-R):	obrigada vocês!! até semana que vem!!
+03:20:18	Eduardo Cândido:	o script vai ficar disponível no classroom ?
+03:21:40	Eduardo Cândido:	show
+03:21:47	Eduardo Cândido:	valeuzao pessoal.
+03:21:51	Beatriz Milz (Curso-R):	😄
+03:21:54	Beatriz Milz (Curso-R):	obrigada!
+03:21:56	Bárbara Tassoni:	Vocês começam a aula 18:30 pra tirar dúvidas?
+03:22:01	Beatriz Milz (Curso-R):	sim !
+03:22:03	Bárbara Tassoni:	bele
+03:22:44	Bárbara Tassoni:	vou assistir umas partes de novo e tentar aqui, que deu alguns errinhos no caminho kk
+03:22:48	Bárbara Tassoni:	Boa noite pessoal <3
+03:22:57	Beatriz Milz (Curso-R):	ok! se mesmo assim nao rolar, chama na monitoria!!
+03:22:58	Beatriz Milz (Curso-R):	boa noite!

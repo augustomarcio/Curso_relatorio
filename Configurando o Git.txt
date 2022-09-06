@@ -1,0 +1,10 @@
+### Configurando o Git no Rstudio
+
+usethis::use_git_config(use.name = "Marcio", user.email = "marcioaugusto@ufg.br")
+
+usethis::use_git()
+usethis::create_github_token()
+
+gitcreds::gitcreds_set() 
+
+usethis::use_github()
